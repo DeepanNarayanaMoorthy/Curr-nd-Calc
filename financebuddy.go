@@ -3,7 +3,6 @@ package main
 import (
     "bufio"
     "fmt"
-    //"io/ioutil"
     "flag"
     "net/http"
     "encoding/json"
@@ -36,5 +35,9 @@ func main() {
         currJson=currJson+scanner.Text()
     }
     json.Unmarshal([]byte(currJson), &curr)
-    fmt.Println(curr.Rates[*toPtr])
+    if *toPtr == "all" {
+      fmt.Println(curr.Rates)
+    } else {
+      fmt.Println(curr.Rates[*toPtr])
+    }
 }
