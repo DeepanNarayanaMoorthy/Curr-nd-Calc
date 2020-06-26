@@ -9,9 +9,9 @@ import (
     "encoding/json"
 )
 type Currency struct{
-  Values map[string]float32
-  Base string
-  Datee string
+  Rates map[string]float32
+  Base string `json:"base"`
+  Date string `json:"date"`
 }
 func main() {
     var curr Currency
@@ -35,8 +35,6 @@ func main() {
     for scanner.Scan(){
         currJson=currJson+scanner.Text()
     }
-    fmt.Println(currJson)
     json.Unmarshal([]byte(currJson), &curr)
-    fmt.Println(curr.Base+" and "+curr.Datee)
-    fmt.Println(curr.Values["CNY"])
+    fmt.Println(curr.Rates[*toPtr])
 }
