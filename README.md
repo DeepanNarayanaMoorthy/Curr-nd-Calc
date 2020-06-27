@@ -2,35 +2,35 @@
 
 ## This is a Command Line Based Currency Converter and calculator written in GoLang
 
- :black_circle: ### For a particular Currency
+###  :black_circle:  For a particular Currency
 
 ```
 go build curr-nd-calc.go
 ./curr-nd-calc -from=USD -to=INR 
 ```
 
- :black_circle: ### For All Currency
+### For All Currency
 
 ```
 go build curr-nd-calc.go
 ./curr-nd-calc -from=USD -to=all 
 ```
 
- :black_circle: ### For Calculator
+### For Calculator
 
 ```
 go build curr-nd-calc.go
 ./curr-nd-calc -calc=3*(1+2(3*4)-22) 
 ```
 
- :black_circle: ### For Adding Contact
+### For Adding Contact
 
 ```
 go build curr-nd-calc.go
 ./curr-nd-calc -cont=JohnDoe,9876543210,MyDad 
 ```
 
- :black_circle: ### For Adding Budget info
+### For Adding Budget info
 #### Lets say that I have spent $234 in laptop service, This is expenditure so " - " (minus) sign will be specified
 ```
 go build curr-nd-calc.go
@@ -42,7 +42,7 @@ go build curr-nd-calc.go
 ./curr-nd-calc -fin=234,loanfromfriend,+ 
 ```
 
- :black_circle: ### For calculating profit or loss and see budget info 
+### For calculating profit or loss and see budget info 
 
 ```
 go build curr-nd-calc.go
