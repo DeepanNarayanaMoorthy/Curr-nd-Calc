@@ -30,4 +30,23 @@ go build curr-nd-calc.go
 ./curr-nd-calc -cont=JohnDoe,9876543210,MyDad 
 ```
 
+### For Adding Budget info
+#### Lets say that I have spent $234 in laptop service, This is expenditure so " - " (minus) sign will be specified
+```
+go build curr-nd-calc.go
+./curr-nd-calc -fin=234,laptop service,- 
+```
+#### If I have got $234 as loan from  a friend, This is return so " + " (plus) sign will be specified
+```
+go build curr-nd-calc.go
+./curr-nd-calc -fin=234,loanfromfriend,+ 
+```
+
+### For calculating profit or loss and see budget info 
+
+```
+go build curr-nd-calc.go
+./curr-nd-calc -finres=y
+```
+
 #### PS : This is just a small code, feel free to comment or contribute  :wink:
