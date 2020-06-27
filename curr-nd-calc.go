@@ -9,8 +9,9 @@ import (
     "go/token"
   	"go/types"
     "io/ioutil"
-    "strings"
     "os"
+    "strconv"
+    "strings"
 )
 type Currency struct{
   Rates map[string]float32
@@ -22,6 +23,12 @@ type Contactt struct {
     Name string `json:"Name"`
     Number string `json:"Number"`
     Relation string `json:"Relation"`
+}
+
+type Finance struct {
+    Amount int `json:"Amount"`
+    Remark string `json:"Remark"`
+    TransType string `json:"TransType"`
 }
 
 func checkFile(filename string) error {
@@ -42,6 +49,8 @@ func main() {
     calcPtr := flag.String("calc", "", "Simple Calculator")
     contPtr := flag.String("cont", "", "Simple Contact Manager")
     seecontPtr := flag.String("seecont", "", "see contents of Simple Contact Manager")
+    finPtr := flag.String("fin", "", "Budget Manager")
+    finresPtr := flag.String("finres", "n", "Returns amount of money left and budget report")
     flag.Parse()
     if *calcPtr != "" {
       fs := token.NewFileSet()
@@ -107,6 +116,57 @@ func main() {
     } else if *seecontPtr == "y" {
       dat, _ := ioutil.ReadFile("Contacts.json")
       fmt.Print(string(dat))
+    } else if *finPtr !="" {
+      resultt := strings.Split(*finPtr, ",")
+      filenamee := "Finance.json"
+      err := checkFile(filenamee)
+      if err != nil {
+          fmt.Println(err)    }
+
+      file, err := ioutil.ReadFile(filenamee)
+      if err != nil {
+          fmt.Println(err)    }
+
+      dataa := []Finance{}
+
+      json.Unmarshal(file, &dataa)
+
+      amt, _ := strconv.Atoi(resultt[0])
+      newStruct := &Finance{
+        Amount : amt,
+        Remark : resultt[1],
+        TransType : resultt[2],
+      }
+
+      dataa = append(dataa, *newStruct)
+
+      dataBytes, err := json.Marshal(dataa)
+      if err != nil {
+          fmt.Println(err)    }
+
+      err = ioutil.WriteFile(filenamee, dataBytes, 0644)
+      if err != nil {
+          fmt.Println(err)    }
+
+    } else if *finresPtr == "y" {
+      var arr []Finance
+      finname := "Finance.json"
+      //finresPtr := flag.String("finres", "n", "a string")
+      //flag.Parse()
+      datt, _ := ioutil.ReadFile(finname)
+      json.Unmarshal([]byte(datt), &arr)
+      amt:=0
+      for index, element := range arr {
+        fmt.Println(index, "=>", element)
+        if element.TransType == "+" {
+          amt=amt+element.Amount
+        } else {
+          amt=amt-element.Amount
+        }
+
+      }
+      fmt.Println("Amount of money Left is : "+ strconv.Itoa(amt))
+
     }
 
 }
