@@ -31,14 +31,14 @@ go build curr-nd-calc.go
 ```
 
 ###  :black_circle: For Adding Budget info
-####  Lets say that I have spent $234 in laptop service, This is expenditure so " - " (minus) sign will be specified
+####    :arrow_forward::arrow_forward: Lets say that I have spent $234 in laptop service, This is expenditure so " - " (minus) sign will be specified
 
 ```
 go build curr-nd-calc.go
 ./curr-nd-calc -fin=234,laptop service,- 
 ```
         
-####  If I have got $234 as loan from  a friend, This is return so " + " (plus) sign will be specified
+####    :arrow_forward::arrow_forward: If I have got $234 as loan from  a friend, This is return so " + " (plus) sign will be specified
 
 ```
 go build curr-nd-calc.go
