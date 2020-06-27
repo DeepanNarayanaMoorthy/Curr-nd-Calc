@@ -23,4 +23,11 @@ go build curr-nd-calc.go
 ./curr-nd-calc -calc=3*(1+2(3*4)-22) 
 ```
 
+### For Adding Contact
+
+```
+go build curr-nd-calc.go
+./curr-nd-calc -cont=*name*,*number*,*relation* 
+```
+
 #### PS : This is just a small code, feel free to comment or contribute  :wink:
