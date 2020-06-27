@@ -1,6 +1,6 @@
 # curr-n-calc
 
-## This is a Command Line Based Currency Converter and calculator written in GoLang
+## This is a Command Line Based Currency Converter and calculator with budget tracker and phonebook included, written in GoLang
 
 ###  :black_circle:  For a particular Currency
 
