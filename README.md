@@ -27,7 +27,7 @@ go build curr-nd-calc.go
 
 ```
 go build curr-nd-calc.go
-./curr-nd-calc -cont= * name *,* number *,* relation * 
+./curr-nd-calc -cont=JohnDoe,9876543210,MyDad 
 ```
 
 #### PS : This is just a small code, feel free to comment or contribute  :wink:
