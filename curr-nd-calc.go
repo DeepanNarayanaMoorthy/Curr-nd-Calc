@@ -41,6 +41,7 @@ func main() {
     toPtr := flag.String("to", "", "To what currency?")
     calcPtr := flag.String("calc", "", "Simple Calculator")
     contPtr := flag.String("cont", "", "Simple Contact Manager")
+    seecontPtr := flag.String("seecont", "", "see contents of Simple Contact Manager")
     flag.Parse()
     if *calcPtr != "" {
       fs := token.NewFileSet()
@@ -103,6 +104,9 @@ func main() {
           fmt.Println(err)
       }
 
+    } else if *seecontPtr == "y" {
+      dat, _ := ioutil.ReadFile("Contacts.json")
+      fmt.Print(string(dat))
     }
 
 }
